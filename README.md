@@ -1,7 +1,7 @@
 # Quokka Server
 
 - `images`: Docker images for Quokka.
-- `docker.social`: The configuration of our demo.
+- `quokka.social`: The configuration of our demo.
 
 ## Deployment
 
