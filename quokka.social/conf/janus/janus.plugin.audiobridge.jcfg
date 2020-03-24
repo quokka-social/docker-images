@@ -1,0 +1,15 @@
+general: {
+  admin_key = "VX9MkffNH6mw6W"  # needed to create rooms
+
+  lock_rtp_forward = true
+
+  events = true
+  string_ids = false
+}
+
+room-42: {
+  description = "Lobby"
+  secret = "C79xhLiGWvUKHp"
+  sampling_rate = 16000
+  record = false
+}

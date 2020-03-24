@@ -1,0 +1,23 @@
+general: {
+  json = "indented"
+
+  ws = false  # disable insecure WS
+  # ws_port = 8188
+
+  wss = true
+  wss_port = 8990
+}
+
+admin: {
+  admin_ws = false  # do not expose the admin API
+  # admin_ws_port = 7188
+
+  admin_wss = false
+  # admin_wss_port = 798
+}
+
+# certificate and key to use for DTLS
+certificates: {
+  cert_pem = "/opt/quokka/ssl/fullchain.pem"
+  cert_key = "/opt/quokka/ssl/privkey.pem"
+}

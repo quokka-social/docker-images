@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  quokka-server:
+    build: ../images/quokka-server
+    # image: quokkasocial/quokka-server
+    ports:
+      - "8990:8990"
+      - "10501-11000:10501-11000/udp"
+    volumes:
+      - "./conf/janus:/opt/janus/etc/janus"
+      - "/etc/letsencrypt/live/quokka.social/fullchain.pem:/opt/quokka/ssl/fullchain.pem"
+      - "/etc/letsencrypt/live/quokka.social/privkey.pem:/opt/quokka/ssl/privkey.pem"

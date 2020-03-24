@@ -1,0 +1,8 @@
+general: {
+  enabled = false
+
+  events = "all"
+  grouping = true
+
+  json = "indented"
+}
