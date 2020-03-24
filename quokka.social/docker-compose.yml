@@ -4,6 +4,7 @@ services:
   quokka-server:
     build: ../images/quokka-server
     # image: quokkasocial/quokka-server
+    restart: always
     ports:
       - "8990:8990"
       - "10501-11000:10501-11000/udp"
