@@ -14,12 +14,20 @@ RUN ./build-scripts/13_libnice.sh
 RUN ./build-scripts/20_janus.sh
 
 
+FROM node:13 AS web-client-builder
+
+COPY web-client /root/web-client
+
+WORKDIR /root/web-client
+
+RUN npm ci
+RUN npm run build
+
+
 FROM debian:buster
 
 LABEL version="0.1.0"
 LABEL maintainer="Maximilian Köhl <mail@koehlma.de>"
-
-COPY --from=janus-builder /opt /opt
 
 RUN apt-get -y update && apt-get -y upgrade
 
@@ -35,7 +43,12 @@ RUN apt-get install -y \
     libconfig9 \
     libavutil56 \
     libavcodec58 \
-    libavformat58
+    libavformat58 \
+    nginx
+
+COPY --from=janus-builder /opt /opt
+
+COPY --from=web-client-builder /root/web-client/dist /opt/quokka/web-client
 
 COPY quokka /opt/quokka
 

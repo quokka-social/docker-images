@@ -17,4 +17,4 @@ echo ""
 # fix permissions
 chmod 700 /opt/quokka/ssl
 
-janus
+nginx -c /opt/quokka/nginx.conf && janus
